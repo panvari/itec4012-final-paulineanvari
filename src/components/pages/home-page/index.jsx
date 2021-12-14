@@ -3,6 +3,10 @@ import {useEffect, useState, useContext} from 'react';
 import {Post} from '../../post';
 import PostContext from "../../../context/post-context";
 
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useHistory } from "react-router-dom";
+
+
 export const HomePage = () => {
 
   //use the use state hook to define the plants state
@@ -12,6 +16,22 @@ export const HomePage = () => {
 
   //use the use context hook to define the globate state using custom context
   const globalState = useContext(PostContext);
+
+
+  const history = useHistory();
+
+    //check if user is logged in
+    useEffect(
+      () => {
+        
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+          if (!user) {
+            history.push('/login');
+          }
+        })
+      }, []
+    );
 
   //use the use effect hook to perform the get plant function
   useEffect(
