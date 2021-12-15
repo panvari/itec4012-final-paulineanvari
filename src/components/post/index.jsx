@@ -2,7 +2,7 @@ import './styles.css';
 
 export const Post  = (props) => {
     //define props for item card
-    const {username, text, image} = props;
+    const {id, username, text, image} = props;
 
     //return item card that uses props
     return (
