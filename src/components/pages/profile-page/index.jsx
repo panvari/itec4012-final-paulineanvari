@@ -4,10 +4,12 @@ import {Post} from '../../post';
 import PostContext from "../../../context/post-context";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export const ProfilePage = () => {
 
   const [email, setEmail] = useState();
+  const [rand, setRand] = useState();
   const [activeUser, setActiveUser] = useState();
 
   //use the use state hook to define the plants state
@@ -19,6 +21,7 @@ export const ProfilePage = () => {
   //use the use context hook to define the globate state using custom context
   const globalState = useContext(PostContext);
 
+  const {register, handleSubmit} = useForm();
 
   const history = useHistory();
   
@@ -39,6 +42,53 @@ export const ProfilePage = () => {
         })
       }, []
     );
+
+    const submitPost = async (formVals) => {
+      setRand(Math.floor(Math.random() * 500))
+      console.log(rand);
+
+      const formattedData = {
+          fields: {
+              id: {
+                  stringValue: String(rand)
+              },
+              username: {
+                  stringValue: email
+              },
+              title: {
+                  stringValue: formVals.title
+              },
+              time: {
+                  stringValue: formVals.time
+              },
+              servings: {
+                  stringValue: formVals.servings
+              },
+              text: {
+                  stringValue: formVals.text
+              },
+              image: {
+                stringValue: formVals.image
+            },
+          }
+      }
+
+      console.log(formVals, formattedData);
+      try {
+          const response = await fetch('https://firestore.googleapis.com/v1/projects/itec4012-final/databases/(default)/documents/posts/',
+          {
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              method: "POST",
+              body: JSON.stringify(formattedData)
+          });
+          history.push('/');
+
+          } catch (error) {
+              console.log("Error", error);
+          }
+  };
 
   //use the use effect hook to perform the get plant function
   useEffect(
@@ -94,6 +144,31 @@ export const ProfilePage = () => {
   return (
     <div className="profile-page">
       <h1 className="profile-title">{email}</h1>
+      <div className="post-form">
+            <form className="form-layout" onSubmit={handleSubmit(submitPost)}>
+                <h2>Submit a New Post:</h2>
+                <br />
+
+                <label htmlFor="title">Title</label>
+                <input {...register("title")} name="title" required/>
+
+                <label htmlFor="time">Time</label>
+                <input {...register("time")} name="time" required />
+
+                <label htmlFor="servings">Servings</label>
+                <input {...register("servings")} name="servings" required />
+
+                <label htmlFor="text">Text</label>
+                <input {...register("text")} name="text" required />
+
+                <label htmlFor="image">Image</label>
+                <input {...register("image")} name="image" required />
+
+                <input type="submit" value="Submit" />
+                <br />
+
+            </form>
+      </div>
       <div className="posts-container">
         {
           //map through plants and create an item card for each
@@ -102,9 +177,11 @@ export const ProfilePage = () => {
               //pass the component data from the api as props
               key={post.id.stringValue}
               username={post.username.stringValue} 
+              title={post.title.stringValue}
+              time={post.time.stringValue}
+              servings={post.servings.stringValue}
               text={post.text.stringValue} 
-              image={post.image.stringValue} 
-              id={post.id.stringValue}>
+              image={post.image.stringValue}>
             </Post>
           ))
         }

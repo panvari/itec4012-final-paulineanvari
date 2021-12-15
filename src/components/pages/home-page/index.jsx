@@ -78,9 +78,11 @@ export const HomePage = () => {
               //pass the component data from the api as props
               key={post.id.stringValue}
               username={post.username.stringValue} 
+              title={post.title.stringValue}
+              time={post.time.stringValue}
+              servings={post.servings.stringValue}
               text={post.text.stringValue} 
-              image={post.image.stringValue} 
-              id={post.id.stringValue}>
+              image={post.image.stringValue}>
             </Post>
           ))
         }
