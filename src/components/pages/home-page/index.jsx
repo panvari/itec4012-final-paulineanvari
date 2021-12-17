@@ -69,16 +69,20 @@ export const HomePage = () => {
   //return page with item cards for each plant in api
   return (
     <div className="home-page">
-      <h1 className="home-title">Shop Our Plants</h1>
+      <h1 className="home-title">All Posts</h1>
       <div className="posts-container">
         {
           //map through plants and create an item card for each
           posts.map((post) => (
             <Post
               //pass the component data from the api as props
+              key={post.id.stringValue}
               username={post.username.stringValue} 
+              title={post.title.stringValue}
+              time={post.time.stringValue}
+              servings={post.servings.stringValue}
               text={post.text.stringValue} 
-              image={post.image.stringValue} >
+              image={post.image.stringValue}>
             </Post>
           ))
         }
