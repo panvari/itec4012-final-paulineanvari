@@ -1,5 +1,6 @@
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useEffect, useState } from 'react';
+import "./styles.css";
 
 export const Logout = () => {
     const [user, setUser] = useState(null);

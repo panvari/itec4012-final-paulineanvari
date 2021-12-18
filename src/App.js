@@ -13,7 +13,6 @@ function App() {
   return (
     <Router>
       {/*include nav bar component on all pages*/}
-    <Navbar/>
     <Switch>
       {/*set route for homepage and use homepage component*/}
       <Route exact path="/">

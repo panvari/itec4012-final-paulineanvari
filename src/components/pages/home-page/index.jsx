@@ -2,7 +2,7 @@ import "./styles.css";
 import {useEffect, useState, useContext} from 'react';
 import {Post} from '../../post';
 import PostContext from "../../../context/post-context";
-
+import { Navbar } from "../../navbar";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useHistory } from "react-router-dom";
 
@@ -68,8 +68,12 @@ export const HomePage = () => {
 
   //return page with item cards for each plant in api
   return (
+    
+    <div className="page">
+    <Navbar/>
     <div className="home-page">
-      <h1 className="home-title">All Posts</h1>
+      <h1 className="home-title">Home Feed</h1>
+      <hr class="solid"></hr>
       <div className="posts-container">
         {
           //map through plants and create an item card for each
@@ -91,6 +95,7 @@ export const HomePage = () => {
           loading && <div class="loader"></div>
         }
       </div>
+    </div>
     </div>
   );
 };

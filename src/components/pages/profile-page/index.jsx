@@ -5,6 +5,7 @@ import PostContext from "../../../context/post-context";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Navbar } from "../../navbar";
 
 export const ProfilePage = () => {
 
@@ -142,11 +143,14 @@ export const ProfilePage = () => {
 
   //return page with item cards for each plant in api
   return (
+    <div className="page">
+    <Navbar/>
     <div className="profile-page">
       <h1 className="profile-title">{email}</h1>
+      <hr class="divider"></hr>
       <div className="post-form">
             <form className="form-layout" onSubmit={handleSubmit(submitPost)}>
-                <h2>Submit a New Post:</h2>
+                <h2>New Post</h2>
                 <br />
 
                 <label htmlFor="title">Title</label>
@@ -169,7 +173,7 @@ export const ProfilePage = () => {
 
             </form>
       </div>
-      <div className="posts-container">
+      <div className="my-posts">
         {
           //map through plants and create an item card for each
           filteredPosts.map((post) => (
@@ -193,6 +197,7 @@ export const ProfilePage = () => {
           loading && <div class="loader"></div>
         }
       </div>
+    </div>
     </div>
   );
 };

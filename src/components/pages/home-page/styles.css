@@ -1,0 +1,17 @@
+.home-page {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.home-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+hr.solid {
+    border-top: 3px solid #190B28;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}

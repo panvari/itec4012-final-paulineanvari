@@ -1,0 +1,95 @@
+.login-page {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon {
+    font-size: 48px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    box-shadow: 0 4px 16px #e2e2e2;
+    background: #685762;
+    border-radius: 15px;
+    height: 100%;
+    padding: 30px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.login-layout input {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 40px;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 4px;
+    background-color: #ffffff38;
+    border: none;
+    color: white;
+}
+
+.login-layout input[type=submit] {
+    background: #EFA9AE;
+    border: none;
+    color: #190B28;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 35px;
+
+}
+
+.login-layout input[type=submit]:hover{
+    background: #efa9ae96;
+}
+
+.login-layout label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.login-divider {
+    border-top: 3px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.login-layout p {
+    font-size: 12px;
+}
+
+.login-layout button {
+    background: #ffffff73;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    border-radius: 40px;
+}
+
+.login-layout button:hover {
+    background: #ffffff5b;
+}

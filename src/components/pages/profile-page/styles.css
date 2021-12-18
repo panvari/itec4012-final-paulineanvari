@@ -1,0 +1,79 @@
+.profile-page {
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.profile-title {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+hr.divider {
+    border-top: 3px solid #190B28;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    box-shadow: 0 4px 16px #e2e2e2;
+    background: #ffffff;
+    border-radius: 15px;
+    height: 100%;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.form-layout input {
+    height: 40px;
+    font-size: 1.5rem;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 40px;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 4px;
+    background-color: #68576238;
+    border-style: solid;
+    border-color: #685762;
+}
+
+.form-layout input[type=submit] {
+    background: #EFA9AE;
+    border: none;
+    color: #190B28;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.form-layout input[type=submit]:hover{
+    background: #efa9ae96;
+}
+
+.form-layout label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 600px) {
+    .profile-page {
+        width: 75%;
+        margin: 0 auto;
+    }
+    .post-form {
+        float: left;
+    }
+
+    .my-posts {
+        float: right;  
+    }
+}

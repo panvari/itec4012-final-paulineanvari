@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"; //install
 import { useHistory } from "react-router-dom";
 import { Button } from "../../button";
 import './styles.css';
+import { RiCake3Line } from 'react-icons/ri';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 export const LoginPage = () => {
@@ -39,8 +40,11 @@ export const LoginPage = () => {
 
     return (
         <div className="login-page">
+            <RiCake3Line className="icon" />
+            <h1 className="login-title">Sweet Talk</h1>
+        <div className="login-container">
             { mode === "login" && (
-                    <form className="form-layout" onSubmit={handleSubmit(loginUser)}>
+                    <form className="login-layout" onSubmit={handleSubmit(loginUser)}>
                         <h2>Welcome back, please log in!</h2>
                         <br/>
                         <label htmlFor="user">Email</label>
@@ -51,6 +55,7 @@ export const LoginPage = () => {
 
                         <input type="submit" value="Login"/>
                         <br/>
+                        <hr class="login-divider"></hr>
                         <p>Don't have an account? Create a new account now!</p>
                         <button onClick={()=> setMode("signup")}>Sign Up</button>
                     </form>
@@ -58,7 +63,7 @@ export const LoginPage = () => {
             }
 
             { mode === "signup" && (
-                    <form className="form-layout" onSubmit={handleSubmit(signUpUser)}>
+                    <form className="login-layout" onSubmit={handleSubmit(signUpUser)}>
                         <h2>Welcome! Please create an account to continue.</h2>
                         <br/>
                         <label htmlFor="user">Email</label>
@@ -72,11 +77,13 @@ export const LoginPage = () => {
 
                         <input type="submit" value="Sign Up"/>
                         <br/>
+                        <hr class="login-divider"></hr>
                         <p>Already have an account?</p>
                         <button onClick={()=> setMode("login")}>Login</button>
                     </form>
                 )
             }
+        </div>
         </div>
     )
 }
