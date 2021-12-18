@@ -41,10 +41,10 @@
 
   @media only screen and (min-width: 600px) {
     .navbar ul {
-      display: flex;
-      flex-direction: row;
-      list-style-type: none;
-      justify-content: flex-end;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        justify-content: flex-end;
     }
 
     .navbar li {
